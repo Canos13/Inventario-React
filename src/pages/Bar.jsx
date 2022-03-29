@@ -5,59 +5,78 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 export const Bar = () => {
   return (
     <>
-
         <Navbar collapseOnSelect expand='lg'variant='dark' bg='dark'>
-            <Navbar.Brand className='mx-3'>
-                Inventario
+            <Navbar.Brand 
+                className='mx-3' 
+                as={NavLink}
+                to="/"
+            >
+                ComputerCenter
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
-            <Navbar.Collapse id='responsive-navbar-nav' >
-                <Nav>
-                    <NavLink 
+            <Navbar.Collapse 
+                id='responsive-navbar-nav' 
+                className='mx-3' 
+            >
+                <Nav className='me-auto' >
+                    <Nav.Link 
                         activeclassname="active"
-                        className="nav-item nav-link" 
+                        as={NavLink}
                         to="/dashboard"
                     >
                         Dashboard
-                    </NavLink>
+                    </Nav.Link>
+                    <Nav.Link 
+                        activeclassname="active"
+                        as={NavLink}
+                        to="/inventory"
+                    >
+                        Inventario
+                    </Nav.Link>
+                    <Nav.Link 
+                        activeclassname="active"
+                        as={NavLink}
+                        to="/reports"
+                    >
+                        Reportes
+                    </Nav.Link>
+                    <NavDropdown title='Admin'>
+                        <NavDropdown.Item
+                            as={NavLink}
+                            activeclassname="active"
+                            to="/users"
+                        >
+                            Usuarios
+                        </NavDropdown.Item>
+                    </NavDropdown>
+                </Nav>
+
+                <Nav >
+                    <Nav.Link 
+                        activeclassname="active"
+                        as={NavLink}
+                        to="/login"
+                    >
+                        Iniciar Sesion
+                    </Nav.Link>
+                    <Nav.Link 
+                        activeclassname="active"
+                        as={NavLink}
+                        to="/signup"
+                    >
+                        Registrarse
+                    </Nav.Link>
+                    <Nav.Link 
+                        activeclassname="active"
+                        as={NavLink}
+                        to="/profile"
+                    >
+                        Mi perfil
+                    </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
-      {/* <nav className="navbar navbar-expand-sm navbar-dark bg-dark">       
-          <Link 
-              className="navbar-brand" 
-              to="/"
-          >
-              INICIO
-          </Link>
-
-          <div className="navbar-collapse">
-              <div className="navbar-nav">
-                  <NavLink 
-                      activeclassname="active"
-                      className="nav-item nav-link" 
-                      to="/dashboard"
-                  >
-                      Dashboard
-                  </NavLink>
-
-              </div>
-          </div>
-
-          <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
-              <ul className="navbar-nav ml-auto">
-                  <NavLink 
-                      activeclassname="active"
-                      className="nav-item nav-link" 
-                      to="/login"
-                  >
-                      Logout
-                  </NavLink>
-              </ul>
-          </div>
-      </nav> */}
-
-
+     
       <section>
           <Outlet />
       </section>
